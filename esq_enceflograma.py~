@@ -23,7 +23,7 @@ def cargar(datafile):
     Output: arreglo con las líneas del archivo
     """
 
-    data = np.loadtxt(datafile)
+    data = np.loadtxt('datafile')
 
     return data
 

@@ -3,14 +3,12 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-#import module_chi2 as mchi2
 from numpy import pi
-
 
 """
 Definicion de las funciones a utilizar para procesar los datos en la funcion principal.
-Presentado por María Margarita Ariza Acero (201124649) y César Augusto Quintana Catano (201125995)
-Fecha de creación: 9 de octubre del 2013
+Presentado por María Margarita Ariza Acero () y César Augusto Quintana Catano (201125995)
+Fecha de creacion: 9 de octubre del 2013
 """
 
 def cargar(archivoDeDatos):
@@ -18,14 +16,14 @@ def cargar(archivoDeDatos):
     """
     Lee el archivo con los datos de manchas solares. 
     
-    Input: archivo con los siguientes datos:
+    input: archivo con los siguientes datos:
     
     Columna 1: agno
     Comluna 2: mes
     columna 3: dias de toma de datos
     columna 4: numero de manchas
 
-    Output: Un arreglo donde en cada posición se encuentran los datos de una fila del archivo que entro como parametro.
+    Output: Un arreglo donde en cada posicion se encuentran los datos de una fila del archivo que entro como parametro.
     """
     # !head -n 498 archivoDeDatos
     data = np.loadtxt(archivoDeDatos)

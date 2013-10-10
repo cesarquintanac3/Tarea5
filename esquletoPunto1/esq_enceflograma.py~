@@ -5,6 +5,7 @@ import sys
 import codecs
 import math
 import numpy as np
+#import module_chi2 as mchi2
 
 """
 Módulo que contiene la función para calcular el Chi².
@@ -41,7 +42,7 @@ def guardardatos(data):
     #Ciclo para crear el arreglo dentro del arreglo para cada electrodo
     for i in range(len(data)):
 
-        electrodos.append([])
+        electrodos.append(data[i])
 
     #Ciclo para guardar la información en cada arreglo
     for j in data:
@@ -68,9 +69,9 @@ def elementosFourier(data):
 
 def LimpiarPuntos(fft_data, fft_freq):
     """
-    Compara los datos del primer arreglo que entra como parámetro y escoje las 10 mayores 
+    Toma los diez puntos con mayor amplitud en su coeficiente de fourier asociado y los conserva, el resto las envía a cero y, a partir de la distribución una distribución de frecuencias, aplica la inversa de fourier para hallar una nueva distribucion de puntos.
     Input:Dos arreglos, uno con frecuencias en cada una de sus posiciones y otro con sus amplitudes asociadas.
-    Output: arreglo con la nueva distribucion de puntos.
+    Output: nueva distribucion de puntos.
     """
 
     AmplitudesLimpias = fft_data
@@ -79,25 +80,17 @@ def LimpiarPuntos(fft_data, fft_freq):
     return puntosNuevos
 
 
-def Graficas(fft_freq,datos,potencias,limpia,potenciasII,puntosNuevosII,fft_freqIII,potenciasIII,puntosNuevosIII,puntos, acumuladoMeses):
+def Graficas(fft_freqs,potencias,tiempo, puntosNuevos):
 
     """
     Genera todas las graficas requeridas por el programa:
 
-    (1)Espectro de potencias que surge de la interpolacion constante
-    (2)Espectro de potencias que surge de la interpolacion lineal
-    (3)Espectro de potencias que surge de la interpolacion cubica
-    (4)Comparacion puntos pre y post limpimpieza por interpolacion constante
-    (5)Comparacion puntos pre y post limpimpieza por interpolacion lineal
-    (6)Comparacion puntos pre y post limpimpieza por interpolacion cubica
-   
+    (1)Espectro de potencias para cada electrodo
+    (2)gráfica de la señal en función del tiempo de los electrodos luego del proceso de filtrado para cada electrodo
+
     Input: 
-    para (1): freqI y potenciasI
-    para (2): freqII y potenciasII 
-    para (3): freqIII y potenciasIII 
-    para (4): puntosNuevosI, puntos y acumuladoMeses 
-    para (5): puntosNuevosII, puntos y acumuladoMeses 
-    para (6): puntosNuevosIII, puntos y acumuladoMeses 
+    para (1): potencias y fft_freqs (arreglos con los productos de las funciones elementosFourier y potencias)
+    para (2): puntosNuevos y tiempo (dis arreglos, uno con los productos de LimpiarPuntos y otro con el tiempo para un electrodo) 
 
     Output: graficas
 
@@ -105,15 +98,3 @@ def Graficas(fft_freq,datos,potencias,limpia,potenciasII,puntosNuevosII,fft_freq
 
     return 
 
-def estimarPeriodo(tiempo,puntos):
-    """
-    A partir de una distribucion de puntos que genera un patron periodico estima el periodo de la funcion.
-
-    Input: Contiene dos arreglos; el primero es la variable independiente tiempo y el segundo es su distribucion asociada (en nuestro caso sera de numero de manchas solares)
-    Output: La funcion devolvera un periodo estimado para el sistema
-
-    """
-
-    periodo= 100
-
-    return periodo
