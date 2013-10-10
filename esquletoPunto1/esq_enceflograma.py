@@ -4,6 +4,7 @@
 import sys
 import codecs
 import math
+import numpy as np
 #import module_chi2 as mchi2
 
 """
@@ -23,7 +24,7 @@ def cargar(datafile):
     Output: arreglo con las líneas del archivo
     """
 
-    data = np.loadtxt('archivoDeDatos')
+    data = np.loadtxt(datafile)
 
     return data
 
@@ -41,14 +42,14 @@ def guardardatos(data):
     #Ciclo para crear el arreglo dentro del arreglo para cada electrodo
     for i in range(len(data)):
 
-        electrodos.append([])
+        electrodos.append(data[i])
 
     #Ciclo para guardar la información en cada arreglo
-    for j in data:
+    #for j in data:
 
-        for i in range(len(electrodos)):
+       # for i in range(len(electrodos)):
 
-            (electrodos[i]).append(j[i])
+        #    (electrodos[i]).append(j[i])
 
     return electrodos
 
