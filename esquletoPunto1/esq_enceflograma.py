@@ -50,6 +50,8 @@ def guardardatos(data):
 
             (electrodos[i]).append(j[i])
 
+    return electrodos
+
 def elementosFourier(data):
 
     """
