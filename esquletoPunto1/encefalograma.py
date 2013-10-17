@@ -89,12 +89,11 @@ def Graficas(fft_freqs,potencias,tiempo, puntosNuevos):
     (2)gráfica de la señal en función del tiempo de los electrodos luego del proceso de filtrado para cada electrodo
 
     Input: 
-    para (1): potencias y fft_freqs (arreglos de arreglos con los productos de las funciones elementosFourier y potencias)
-    para (2): puntosNuevos y tiempo (dos arreglos de arreglos, uno con los productos de LimpiarPuntos y otro con el tiempo para un electrodo) 
+    para (1): potencias y fft_freqs (arreglos con los productos de las funciones elementosFourier y potencias)
+    para (2): puntosNuevos y tiempo (dis arreglos, uno con los productos de LimpiarPuntos y otro con el tiempo para un electrodo) 
 
     Output: graficas
 
     """
 
     return 
-
